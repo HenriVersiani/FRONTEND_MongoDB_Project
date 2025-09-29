@@ -1,0 +1,28 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.card{
+display: flex;
+  gap: 30px;
+  align-items: center;
+  background-color:rgb(117, 165, 190);
+  border-radius: 10px;
+  max-width: 50%;
+  width: 700px;
+  padding: 20px;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
