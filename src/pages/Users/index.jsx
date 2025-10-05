@@ -10,7 +10,6 @@ export default function Users() {
     async function getUsers() {
        const usersFromApi = await api.get('/users')
         setUsers(usersFromApi.data)
-        console.log(usersFromApi)
     }
 
     useEffect(()=>{
