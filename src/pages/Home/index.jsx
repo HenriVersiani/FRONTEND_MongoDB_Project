@@ -19,10 +19,14 @@ export default function Home() {
     const res = await req.data
     console.log(res.token)
 
- if(res.token === 'success'){
-    navigate("/users")
- }
+    if (res.token === 'success') {
+      navigate("/users")
+    }
   }
+
+  async function redirect(){
+      navigate("/signup")
+    }
 
   return (
     <>
@@ -32,7 +36,7 @@ export default function Home() {
           <input name="email" type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
           <input name="password" type="password" placeholder='Password' value={password} onChange={({ target }) => setPassword(target.value)} />
           <button type='button' className='button-login' onClick={loginUser}>Login</button>
-          <button type='button' className='button-signup'>SignUp</button>
+          <button type='button' className='button-signup' onClick={redirect}>SignUp</button>
         </form>
       </div>
     </>
