@@ -47,13 +47,14 @@ input{
   border-radius: 5px;
   background-color: rgb(93, 132, 169);
   color: white;
+
 }
 
 input::placeholder{
   color: white;
 }
 
-.button-signup{
+.button-signup-red{
   margin-top: 10px;
   border-radius: 30px;
   color: white;
@@ -65,4 +66,14 @@ input::placeholder{
   padding: 4px;
   font-size: 13px;
   width: 100px;
+}
+
+.web-name{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
 }

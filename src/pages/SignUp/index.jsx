@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Header from '../Components/Header'
 import './style.css'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router';
 
 export default function SignUp() {
 
@@ -10,33 +12,52 @@ export default function SignUp() {
     const [area, setArea] = useState()
     const [email, setEmail] = useState()
     const [senha, setSenha] = useState()
+    const navigate = useNavigate();
 
     async function cadastrarUsuario() {
 
-            const req = await axios.post('http://localhost:3000/users', {
-                "nome": nome,
-                "email": email,
-                "areaOcupacao": area,
-                "numeroTelefone": Number(telefone),
-                "senha": senha
-            })
-    
+        const req = await axios.post('http://localhost:3000/users', {
+            "nome": nome,
+            "email": email,
+            "areaOcupacao": area,
+            "numeroTelefone": Number(telefone),
+            "senha": senha
+        })
+
         const res = await req.data
-        console.log(res)
+
+        if (res.error) {
+            toast.warning(res.error)
+        } else {
+            toast.success("User Created")
+
+            setTimeout(() => {
+                navigate("/dashboard");
+            }, 2000);
+        }
+    }
+
+    function redirect(){
+        navigate("/")
     }
 
     return (
         <>
-            <Header />
-            <form >
-                <input type="text" placeholder='Name' value={nome} onChange={({ target }) => setNome(target.value)} />
-                <input type="tel" placeholder='Phone' value={telefone} onChange={({ target }) => setTelefone(target.value)} />
-                <input type="text" placeholder='Ocupation Area' value={area} onChange={({ target }) => setArea(target.value)} />
-                <input type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
-                <input type="password" placeholder='Password' value={senha} onChange={({ target }) => setSenha(target.value)} />
+            <header><Link className="web-name" to="/">Perfume Store Management</Link></header>
+            <main>
+                <ToastContainer />
+                <form >
+                    <h1>Sign Up</h1>
+                    <input className='input-signup' type="text" placeholder='Name' value={nome} onChange={({ target }) => setNome(target.value)} />
+                    <input className='input-signup' type="tel" placeholder='Phone' value={telefone} onChange={({ target }) => setTelefone(target.value)} />
+                    <input className='input-signup' type="text" placeholder='Ocupation Area' value={area} onChange={({ target }) => setArea(target.value)} />
+                    <input className='input-signup' type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
+                    <input className='input-signup' type="password" placeholder='Password' value={senha} onChange={({ target }) => setSenha(target.value)} />
 
-                <button type='button' onClick={cadastrarUsuario}>Sign Up</button>
-            </form>
+                    <button className="button-signup" type='button' onClick={cadastrarUsuario}>Sign Up</button>
+                    <button type='button' className='button-login-red' onClick={redirect}>LogIn</button>
+                </form>
+            </main>
         </>
     )
 }

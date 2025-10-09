@@ -18,3 +18,9 @@ header{
     border-radius: 5px;
     justify-content: space-around;
 }
+
+.web-name{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}

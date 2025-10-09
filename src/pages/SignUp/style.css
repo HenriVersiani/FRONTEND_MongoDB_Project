@@ -1,0 +1,59 @@
+main{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(52, 85, 103);
+    padding: 20px 20px 40px 20px;
+    gap: 20px;
+    width: 50%;
+    width: 600px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.input-signup{
+    background-color: rgb(93, 132, 169);
+    width: 60%;
+}
+
+.button-signup{
+  border-radius: 30px;
+  color: white;
+  background-color: rgb(90, 154, 232);
+  height: 40px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+  width: 40%;
+}
+
+.web-name{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
+}
+
+.button-login-red{
+    margin-top: 10px;
+  border-radius: 30px;
+  color: white;
+  background-color:  rgb(90, 154, 232);
+  height: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 13px;
+  width: 100px;
+}

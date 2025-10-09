@@ -5,12 +5,12 @@ import './style.css'
 export default function Header() {
     return(
         <header>
-            <h1>Nome Site</h1>
+            <Link className="web-name" to="/">Perfume Store Management</Link>
             <nav>
-                <Link className="link" to="/estoque">Estoque</Link>
-                <Link className="link" to="/cadastrar">Cadastrar</Link>
-                <Link className="link" to="/vendas">Vendas</Link>
-                <Link className="link" to="/vendedores">Vendedores</Link>
+                <Link className="link" to="/estoque">Deposit</Link>
+                <Link className="link" to="/cadastrar">Register</Link>
+                <Link className="link" to="/vendas">Sales</Link>
+                <Link className="link" to="/vendedores">Sellers</Link>
                 
                 <FiAlignCenter />
             </nav>

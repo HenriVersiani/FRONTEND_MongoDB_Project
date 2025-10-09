@@ -1,7 +1,8 @@
 import './style.css'
 import { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
+import Header from '../Components/Header'
 
 
 export default function Home() {
@@ -24,19 +25,20 @@ export default function Home() {
     }
   }
 
-  async function redirect(){
-      navigate("/signup")
-    }
+  async function redirect() {
+    navigate("/signup")
+  }
 
   return (
     <>
+      <header><Link className="web-name" to="/">Perfume Store Management</Link></header>
       <div className='container'>
         <form className='form-login'>
           <h1>User Login</h1>
           <input name="email" type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
           <input name="password" type="password" placeholder='Password' value={password} onChange={({ target }) => setPassword(target.value)} />
           <button type='button' className='button-login' onClick={loginUser}>Login</button>
-          <button type='button' className='button-signup' onClick={redirect}>SignUp</button>
+          <button type='button' className='button-signup-red' onClick={redirect}>SignUp</button>
         </form>
       </div>
     </>

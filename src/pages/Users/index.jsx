@@ -1,6 +1,7 @@
 import './style.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react'
+import Header from '../Components/Header'
 
 
 export default function Users() {
@@ -8,18 +9,19 @@ export default function Users() {
     const [users, setUsers] = useState([])
 
     async function getUsers() {
-       const usersFromApi = await api.get('/users')
+        const usersFromApi = await api.get('/users')
         setUsers(usersFromApi.data)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getUsers()
-    },[])
+    }, [])
 
-    
+
 
     return (
         <>
+            <Header />
             <h1> Users </h1>
             {users.map(user => (
                 <div key={user.id} className='container'>
