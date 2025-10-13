@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Header from '../Components/Header'
+import Header from '../../Components/Header'
 import './style.css'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';

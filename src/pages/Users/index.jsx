@@ -1,7 +1,7 @@
 import './style.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react'
-import Header from '../Components/Header'
+import Header from '../../Components/Header'
 
 
 export default function Users() {
@@ -22,7 +22,7 @@ export default function Users() {
     return (
         <>
             <Header />
-            <h1> Users </h1>
+            <h1> Sellers </h1>
             {users.map(user => (
                 <div key={user.id} className='container'>
                     <div className='card'>

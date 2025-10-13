@@ -2,8 +2,7 @@ import './style.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router'
-import Header from '../Components/Header'
-
+import { toast, ToastContainer } from 'react-toastify'
 
 export default function Home() {
 
@@ -20,9 +19,16 @@ export default function Home() {
     const res = await req.data
     console.log(res.token)
 
+    if (res.error) {
+      toast.warning(res.error)
+    }
+
     if (res.token === 'success') {
       navigate("/users")
     }
+
+
+
   }
 
   async function redirect() {
@@ -32,6 +38,7 @@ export default function Home() {
   return (
     <>
       <header><Link className="web-name" to="/">Perfume Store Management</Link></header>
+      <ToastContainer />
       <div className='container'>
         <form className='form-login'>
           <h1>User Login</h1>

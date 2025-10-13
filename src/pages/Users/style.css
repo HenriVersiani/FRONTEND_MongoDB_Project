@@ -6,7 +6,7 @@
 }
 
 .card{
-display: flex;
+display: block;
   gap: 30px;
   align-items: center;
   background-color:rgb(52, 85, 103);

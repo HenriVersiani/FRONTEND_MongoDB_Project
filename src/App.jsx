@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router";
 import Users from "./pages/Users";
-import Login from "./pages/Home";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import SignUp from "./pages/SignUp";
+import Products from "./pages/Products";
+import Sales from "./pages/Sales";
 
 
 
@@ -14,6 +15,8 @@ export default function App() {
             <Route path="/users" element={<Users />}></Route>
             <Route path="/dashboard" element={<Dashboard/>}></Route>
             <Route path="/signup" element={<SignUp/>}></Route>
+            <Route path="/deposit" element={<Products/>}></Route>
+            <Route path="/sales" element={<Sales/>}></Route>
         </Routes>
     )
 }
