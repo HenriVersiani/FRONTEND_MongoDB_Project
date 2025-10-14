@@ -12,7 +12,7 @@ export default function App() {
     return (
         <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/users" element={<Users />}></Route>
+            <Route path="/sellers" element={<Users />}></Route>
             <Route path="/dashboard" element={<Dashboard/>}></Route>
             <Route path="/signup" element={<SignUp/>}></Route>
             <Route path="/deposit" element={<Products/>}></Route>

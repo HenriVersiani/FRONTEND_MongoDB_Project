@@ -1,5 +1,5 @@
 import './style.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
@@ -9,6 +9,14 @@ export default function Home() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const tokenLocal = localStorage.getItem('token');
+
+    if(tokenLocal){
+      navigate("sellers")
+    }
+  }, [])
 
   async function loginUser() {
     const req = await axios.post('http://localhost:3000/users/login', {
@@ -24,15 +32,11 @@ export default function Home() {
     }
 
     if (res.token === 'success') {
-      navigate("/users")
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('email', email);
+
+      navigate("sellers")
     }
-
-
-
-  }
-
-  async function redirect() {
-    navigate("/signup")
   }
 
   return (
@@ -45,7 +49,7 @@ export default function Home() {
           <input name="email" type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
           <input name="password" type="password" placeholder='Password' value={password} onChange={({ target }) => setPassword(target.value)} />
           <button type='button' className='button-login' onClick={loginUser}>Login</button>
-          <button type='button' className='button-signup-red' onClick={redirect}>SignUp</button>
+          <button type='button' className='button-signup-red' onClick={() => navigate("/signup")}>SignUp</button>
         </form>
       </div>
     </>

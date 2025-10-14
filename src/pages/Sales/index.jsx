@@ -2,11 +2,13 @@ import './style.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
+import { useNavigate } from 'react-router'
 
 
 export default function Sales() {
 
     const [sales, setSales] = useState([])
+    const navigate = useNavigate()
 
     async function getSales() {
         const salesFromApi = await api.get('/vendas')
@@ -15,6 +17,13 @@ export default function Sales() {
 
     useEffect(() => {
         getSales()
+
+        const tokenLocal = localStorage.getItem('token');
+        const emailLocal = localStorage.getItem('email');
+
+        if (!tokenLocal) {
+            navigate("/")
+        } 
     }, [])
 
 console.log(sales)

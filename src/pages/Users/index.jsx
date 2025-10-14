@@ -2,11 +2,13 @@ import './style.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
+import { useNavigate } from 'react-router'
 
 
 export default function Users() {
 
     const [users, setUsers] = useState([])
+    const navigate = useNavigate()
 
     async function getUsers() {
         const usersFromApi = await api.get('/users')
@@ -15,6 +17,16 @@ export default function Users() {
 
     useEffect(() => {
         getUsers()
+
+        const tokenLocal = localStorage.getItem('token');
+        const emailLocal = localStorage.getItem('email');
+
+        console.log(tokenLocal, emailLocal)
+
+        if (!tokenLocal) {
+            navigate("/")
+        } 
+        
     }, [])
 
 

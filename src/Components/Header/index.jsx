@@ -10,7 +10,7 @@ export default function Header() {
                 <Link className="link" to="/signup">Register</Link>
                 <Link className="link" to="/deposit">Deposit</Link>
                 <Link className="link" to="/sales">Sales</Link>
-                <Link className="link" to="/users">Sellers</Link>
+                <Link className="link" to="/sellers">Sellers</Link>
                 
                 <FiAlignCenter />
             </nav>
