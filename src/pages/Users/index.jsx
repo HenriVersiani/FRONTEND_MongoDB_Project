@@ -8,11 +8,20 @@ import { useNavigate } from 'react-router'
 export default function Users() {
 
     const [users, setUsers] = useState([])
+    const [userName, setUserName] = useState([])
     const navigate = useNavigate()
 
     async function getUsers() {
         const usersFromApi = await api.get('/users')
         setUsers(usersFromApi.data)
+    }
+
+    console.log(userName)
+
+    async function getUsersByName() {
+        const userByName = await api.get(`/users/nome/${userName}`)
+        setUsers(userByName.data)
+
     }
 
     useEffect(() => {
@@ -21,20 +30,20 @@ export default function Users() {
         const tokenLocal = localStorage.getItem('token');
         const emailLocal = localStorage.getItem('email');
 
-        console.log(tokenLocal, emailLocal)
-
         if (!tokenLocal) {
             navigate("/")
-        } 
-        
+        }
+
     }, [])
-
-
 
     return (
         <>
             <Header />
-            <h1> Sellers </h1>
+            <div className='title-search'>
+                <h1> Sellers </h1>
+                <input className='input-search' name="input-search" type="search" placeholder='Search' value={userName} onChange={({ target }) => { setUserName(target.value); }} />
+                <button type='button' onClick={getUsersByName}>Lupa</button>
+            </div>
             {users.map(user => (
                 <div key={user.id} className='container'>
                     <div className='card'>
