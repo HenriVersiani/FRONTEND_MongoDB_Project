@@ -17,6 +17,7 @@ export default function Products() {
     const [status, setStatus] = useState([])
     const [genero, setGenero] = useState([])
     const [classificacao, setClassificacao] = useState([])
+    const [showForm, setShowForm] = useState(false)
 
     const navigate = useNavigate()
 
@@ -57,20 +58,30 @@ export default function Products() {
         <>
             <Header />
             <h1> Products </h1>
-            <Link>Link pro Form</Link>
-            <form className='form-product'>
-                <h1>Add Product</h1>
-                <input type="text" placeholder='Name' value={nome} onChange={({ target }) => { setNome(target.value); }} />
-                <input type="text" placeholder='Price' value={preco} onChange={({ target }) => { setPreco(target.value); }} />
-                <input type="text" placeholder='Category' value={categoria} onChange={({ target }) => { setCategoria(target.value); }} />
-                <input type="text" placeholder='Image' value={imagem} onChange={({ target }) => { setImagem(target.value); }} />
-                <input type="text" placeholder='Status' value={status} onChange={({ target }) => { setStatus(target.value); }} />
-                <input type="text" placeholder='Gender' value={genero} onChange={({ target }) => { setGenero(target.value); }} />
-                <input type="text" placeholder='Class' value={classificacao} onChange={({ target }) => { setClassificacao(target.value); }} />
 
-                <button className='button-signup' onClick={createProduct}>Add</button>
-            </form>
-            {products.map(product => (
+
+            {showForm ? (
+                <div className='container'>
+                    <Link className='link-form-back' onClick={() => setShowForm(false)}> ←  Back</Link>
+                    <form className='form-product'>
+                        <h1>Add Product</h1>
+                        <input type="text" placeholder='Name' value={nome} onChange={({ target }) => { setNome(target.value); }} />
+                        <input type="text" placeholder='Price' value={preco} onChange={({ target }) => { setPreco(target.value); }} />
+                        <input type="text" placeholder='Category' value={categoria} onChange={({ target }) => { setCategoria(target.value); }} />
+                        <input type="text" placeholder='Image' value={imagem} onChange={({ target }) => { setImagem(target.value); }} />
+                        <input type="text" placeholder='Status' value={status} onChange={({ target }) => { setStatus(target.value); }} />
+                        <input type="text" placeholder='Gender' value={genero} onChange={({ target }) => { setGenero(target.value); }} />
+                        <input type="text" placeholder='Class' value={classificacao} onChange={({ target }) => { setClassificacao(target.value); }} />
+
+                        <button className='button-signup' onClick={createProduct}>Add</button>
+                    </form>
+                </div>
+            ) : (
+                <div>
+                <div className='main'>
+                    <Link className='link-form' onClick={() => setShowForm(true)}>Add Product</Link>
+                </div>
+                {products.map(product => (
                 <div key={product.id} className='container'>
                     <div className='card'>
 
@@ -112,6 +123,8 @@ export default function Products() {
                     </div>
                 </div>
             ))}
+            </div>
+            )}  
         </>
     )
 }
