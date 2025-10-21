@@ -13,6 +13,8 @@ form{
     display: flex;
     justify-content: center;
     width: 150px;
+    border: none;
+    margin-top: 10px;
 }
 
 .link-form-back{
@@ -26,11 +28,18 @@ form{
     justify-content: center;
     width: 150px;
     margin-bottom: 10px;
+    border: none;
 }
 
 .link-form:hover{
     opacity: 70%;
+    cursor: pointer;
 }
+.link-form-back:hover{
+    opacity: 70%;
+    cursor: pointer;
+}
+
 
 .main{
     display: flex;
