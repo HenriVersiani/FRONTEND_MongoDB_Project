@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
 import { Link, useNavigate } from 'react-router'
 import axios from 'axios'
+import { toast, ToastContainer } from 'react-toastify'
 
 export default function Products() {
 
@@ -54,12 +55,15 @@ export default function Products() {
 
         const res = await req.data
 
+        console.log(res)
+
         if (res.error) {
             toast.warning(res.error)
         } else {
-            toast.success("User Created")
+            toast.success("Product Created")
             setTimeout(() => {
-                navigate("/deposit")
+                setShowForm(false)
+                navigate(0);
             }, 2000)
         }
     }
@@ -76,7 +80,7 @@ export default function Products() {
         <>
             <Header />
             <h1> Products </h1>
-
+            <ToastContainer/>
             {showForm ? (
                 <div className='container'>
                     <button className='link-form-back' onClick={() => setShowForm(false)}> ← Back</button>
@@ -88,8 +92,18 @@ export default function Products() {
 
                         <input type="file" onChange={({ target }) => setImagem(target.files[0])} />
 
-                        <input type="text" placeholder='Gender' value={genero} onChange={({ target }) => setGenero(target.value)} />
-                        <input type="text" placeholder='Class' value={classificacao} onChange={({ target }) => setClassificacao(target.value)} />
+                        <select className="select-sale" value={genero} onChange={({ target }) => { setGenero(target.value) }}>
+                                <option>Select Gender</option>
+                                <option value="Women">Women</option>
+                                <option value="Men">Men</option>
+                                <option value="Any">Any</option>
+                        </select>
+                        <select className="select-sale" value={classificacao} onChange={({ target }) => { setClassificacao(target.value) }}>
+                                <option>Select Class</option>
+                                <option value="Adult">Adult</option>
+                                <option value="Children">Children</option>
+                                <option value="Any">Any</option>
+                        </select>
 
                         <button className='button-signup' type='submit'>Add</button>
                     </form>

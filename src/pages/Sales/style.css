@@ -1,0 +1,11 @@
+.select-sale{
+  height: 32px;
+  font-size: 15px;
+  border: none;
+  padding: 0px;
+  border-radius: 5px;
+  background-color: rgb(93, 132, 169);
+  color: white;
+  text-decoration: none;
+  width: 50%;
+}

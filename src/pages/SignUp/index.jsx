@@ -50,7 +50,13 @@ export default function SignUp() {
                     <h1>Sign Up</h1>
                     <input className='input-signup' type="text" placeholder='Name' value={nome} onChange={({ target }) => setNome(target.value)} />
                     <input className='input-signup' type="tel" placeholder='Phone' value={telefone} onChange={({ target }) => setTelefone(target.value)} />
-                    <input className='input-signup' type="text" placeholder='Ocupation Area' value={area} onChange={({ target }) => setArea(target.value)} />
+                    <select className="select-sale" value={area} onChange={({ target }) => { setArea(target.value) }}>
+                                <option>Select Area</option>
+                                <option value="Women">Women</option>
+                                <option value="Men">Men</option>
+                                <option value="Children">Children</option>
+                                <option value="Any">Any</option>
+                            </select>
                     <input className='input-signup' type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
                     <input className='input-signup' type="password" placeholder='Password' value={senha} onChange={({ target }) => setSenha(target.value)} />
 
