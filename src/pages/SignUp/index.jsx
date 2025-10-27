@@ -56,7 +56,7 @@ export default function SignUp() {
                                 <option value="Men">Men</option>
                                 <option value="Children">Children</option>
                                 <option value="Any">Any</option>
-                            </select>
+                    </select>
                     <input className='input-signup' type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
                     <input className='input-signup' type="password" placeholder='Password' value={senha} onChange={({ target }) => setSenha(target.value)} />
 
