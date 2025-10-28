@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import { FiAlignCenter } from "react-icons/fi";
 import './style.css'
+import { FaBluetoothB } from "react-icons/fa";
+
 
 export default function Header() {
     return(
