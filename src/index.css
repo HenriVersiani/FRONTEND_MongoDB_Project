@@ -7,6 +7,6 @@
 body{
   min-height: 100vh;
   width: 100vw;
-  background: rgb(76, 128, 130);
+  background: oklch(45% 0.085 224.283);
   font-family: "Nunito", sans-serif;
 }

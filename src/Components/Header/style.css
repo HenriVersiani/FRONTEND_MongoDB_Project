@@ -12,7 +12,7 @@ nav {
 }
 
 header{
-    background-color: rgb(57, 104, 104);
+    background-color: oklch(30.2% 0.056 229.695);
     display: flex;
     align-items: center;
     border-radius: 5px;

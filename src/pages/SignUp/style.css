@@ -17,14 +17,14 @@ form{
 }
 
 .input-signup{
-    background-color: rgb(93, 132, 169);
+    background-color: oklch(39.1% 0.09 240.876);
     width: 60%;
 }
 
 .button-signup{
   border-radius: 30px;
   color: white;
-  background-color: rgb(90, 154, 232);
+  background-color: oklch(50% 0.134 242.749);
   height: 40px;
   border: none;
   font-weight: bold;
@@ -48,7 +48,7 @@ form{
     margin-top: 10px;
   border-radius: 30px;
   color: white;
-  background-color:  rgb(90, 154, 232);
+  background-color:  oklch(50% 0.134 242.749);
   height: 25px;
   border: none;
   font-weight: bold;
