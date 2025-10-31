@@ -1,8 +1,8 @@
-import './style.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
+import './home.css'
 
 export default function Home() {
 

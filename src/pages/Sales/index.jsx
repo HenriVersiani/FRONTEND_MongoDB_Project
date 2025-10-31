@@ -1,4 +1,4 @@
-import './style.css'
+import './sales.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
@@ -55,6 +55,20 @@ export default function Sales() {
             }, 2000)
         }
 
+    }
+
+    async function deleteSale(id) {
+        const response = await api.delete(`/vendas/${id}`)
+        console.log(response)
+
+        if (response.data.error) {
+            toast.warning(response.data.error);
+        } else {
+            toast.success("Sale Deleted!");
+        }
+        setTimeout(() => {
+            navigate(0);
+        }, 2000)
     }
 
     useEffect(() => {
@@ -141,8 +155,8 @@ export default function Sales() {
                                         </div>
                                     </div>
                                     <div className='buttons'>
-                                        <button className='button-delete' onClick={() => deleteUser(user._id)}>Delete</button>
-                                        <button className='button-edit' onClick={() => navigate(`/seller/${user._id}`)}>Edit</button>
+                                        <button className='button-delete' onClick={() => deleteSale(sale._id)}>Delete</button>
+                                        <button className='button-edit' onClick={() => navigate(`/sale/${sale._id}`)}>Edit</button>
                                     </div>
                                 </div>
                             </div>

@@ -1,4 +1,4 @@
-import './style.css'
+import './users.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
@@ -13,13 +13,6 @@ export default function Users() {
 
     const [users, setUsers] = useState([])
     const [userName, setUserName] = useState([])
-    const [editForm, setEditForm] = useState(false)
-    const [nome, setNome] = useState('')
-    const [telefone, setTelefone] = useState('')
-    const [area, setArea] = useState('')
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-    const [seller, setSeller] = useState('')
     const navigate = useNavigate()
 
     async function getUsers() {

@@ -14,11 +14,12 @@ h1{
   flex-direction: column;
   gap: 30px;
   align-items: center;
-  background-color:rgb(52, 85, 103);
+  background-color: oklch(30.2% 0.056 229.695);
   border-radius: 10px;
   max-width: 50%;
   width: 400px;
   padding: 50px;
+  box-shadow: 0 4px 6px rgba(1, 1, 1, 0.3)
 }
 
 .button-login{

@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import Products from "./pages/Products";
 import Sales from "./pages/Sales";
 import Seller from "./pages/Seller";
+import Sale from "./pages/Sale";
 
 export default function App() {
     return (
@@ -17,6 +18,7 @@ export default function App() {
             <Route path="/signup" element={<SignUp/>}></Route>
             <Route path="/deposit" element={<Products/>}></Route>
             <Route path="/sales" element={<Sales/>}></Route>
+            <Route path="/sale/:id" element={<Sale/>}></Route>
         </Routes>
     )
 }

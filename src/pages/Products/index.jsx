@@ -1,4 +1,4 @@
-import './style.css'
+import './product.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
@@ -80,7 +80,7 @@ export default function Products() {
         <>
             <Header />
             <h1> Products </h1>
-            <ToastContainer/>
+            <ToastContainer />
             {showForm ? (
                 <div className='container'>
                     <button className='link-form-back' onClick={() => setShowForm(false)}> ← Back</button>
@@ -93,16 +93,16 @@ export default function Products() {
                         <input type="file" onChange={({ target }) => setImagem(target.files[0])} />
 
                         <select className="select-sale" value={genero} onChange={({ target }) => { setGenero(target.value) }}>
-                                <option>Select Gender</option>
-                                <option value="Women">Women</option>
-                                <option value="Men">Men</option>
-                                <option value="Any">Any</option>
+                            <option>Select Gender</option>
+                            <option value="Women">Women</option>
+                            <option value="Men">Men</option>
+                            <option value="Any">Any</option>
                         </select>
                         <select className="select-sale" value={classificacao} onChange={({ target }) => { setClassificacao(target.value) }}>
-                                <option>Select Class</option>
-                                <option value="Adult">Adult</option>
-                                <option value="Children">Children</option>
-                                <option value="Any">Any</option>
+                            <option>Select Class</option>
+                            <option value="Adult">Adult</option>
+                            <option value="Children">Children</option>
+                            <option value="Any">Any</option>
                         </select>
 
                         <button className='button-signup' type='submit'>Add</button>
@@ -115,14 +115,20 @@ export default function Products() {
                     </div>
                     {products.map(product => (
                         <div key={product.id} className='container'>
-                            <div className='card'>
-                                <div className='info'><h3>Name:</h3><p>{product.nome}</p></div>
-                                <div className='info'><h3>Categoria:</h3><p>{product.categoria}</p></div>
-                                <div className='info'><h3>Gênero:</h3><p>{product.genero}</p></div>
-                                <div className='info'><h3>Preço:</h3><p>{product.preco}</p></div>
-                                <div className='info'><h3>Status:</h3><p>{product.status}</p></div>
-                                <div className='info'><h3>Id:</h3><p>{product._id}</p></div>
-                                <img src={product.imagem} alt="Product Image" />
+                                <div className='card'>
+                                    <div className='card-info'>
+                                    <div className='info'><h3>Name:</h3><p>{product.nome}</p></div>
+                                    <div className='info'><h3>Categoria:</h3><p>{product.categoria}</p></div>
+                                    <div className='info'><h3>Gênero:</h3><p>{product.genero}</p></div>
+                                    <div className='info'><h3>Preço:</h3><p>{product.preco}</p></div>
+                                    <div className='info'><h3>Status:</h3><p>{product.status}</p></div>
+                                    <div className='info'><h3>Id:</h3><p>{product._id}</p></div>
+                                </div>
+                                <img src={product.imagem} alt="Product Image" className='img-product' />
+                                 <div className='buttons'>
+                                        <button className='button-delete' onClick={() => deleteUser(user._id)}>Delete</button>
+                                        <button className='button-edit' onClick={() => navigate(`/seller/${user._id}`)}>Edit</button>
+                                </div>
                             </div>
                         </div>
                     ))}

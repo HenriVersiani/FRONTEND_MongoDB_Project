@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Header from '../../Components/Header'
-import './style.css'
+import './signup.css'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router';

@@ -3,6 +3,7 @@ import Header from "../../Components/Header"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
+import './seller.css'
 
 export default function Seller() {
 

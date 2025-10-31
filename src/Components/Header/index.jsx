@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { FiAlignCenter } from "react-icons/fi";
-import './style.css'
+import './header.css'
 import { FaBluetoothB } from "react-icons/fa";
 
 
