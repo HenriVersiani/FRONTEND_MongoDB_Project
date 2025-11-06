@@ -58,8 +58,7 @@ export default function SignUp() {
                                 <option value="Any">Any</option>
                     </select>
                     <input className='input-signup' type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
-                    <input className='input-signup' type="password" placeholder='Password' value={senha} onChange={({ target }) => setSenha(target.value)} />
-
+                    <input className='input-signup' type="password" placeholder='Password' value={senha} onChange={({ target }) => setSenha(target.value)} />                    
                     <button className="button-signup" type='button' onClick={cadastrarUsuario}>Sign Up</button>
                     <button type='button' className='button-login-red' onClick={redirect}>LogIn</button>
                 </form>

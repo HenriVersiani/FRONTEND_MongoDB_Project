@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import axios from 'axios'
 import { FiSearch } from "react-icons/fi";
 import { CiDesktopMouse1 } from 'react-icons/ci'
+import MyButton from '../../Components/MyButton'
 
 
 export default function Users() {
@@ -82,8 +83,8 @@ export default function Users() {
                                     </div>
                                 </div>
                                 <div className='buttons'>
-                                    <button className='button-delete' onClick={() => deleteUser(user._id)}>Delete</button>
-                                    <button className='button-edit' onClick={() => navigate(`/seller/${user._id}`)}>Edit</button>
+                                    <MyButton buttonClass="button-red button-small" buttonTitle="Delete" buttonHandle={() => deleteUser(user._id)}/>
+                                    <MyButton buttonClass="button-blue button-small" buttonTitle="Edit" buttonHandle={() => navigate(`/seller/${user._id}`)}/>
                                 </div>
                             </div>
                         </div>
