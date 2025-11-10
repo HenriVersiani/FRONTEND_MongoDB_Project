@@ -5,6 +5,9 @@ import Header from '../../Components/Header'
 import { Link, useNavigate } from 'react-router'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
+import MyButton from '../../Components/MyButton'
+import MyInput from '../../Components/MyInput'
+import MyCard from '../../Components/MyCard'
 
 export default function Products() {
 
@@ -55,8 +58,6 @@ export default function Products() {
 
         const res = await req.data
 
-        console.log(res)
-
         if (res.error) {
             toast.warning(res.error)
         } else {
@@ -86,11 +87,10 @@ export default function Products() {
                     <button className='link-form-back' onClick={() => setShowForm(false)}> ← Back</button>
                     <form className='form-product' onSubmit={createProduct}>
                         <h1>Add Product</h1>
-                        <input type="text" placeholder='Name' value={nome} onChange={({ target }) => setNome(target.value)} />
-                        <input type="text" placeholder='Price' value={preco} onChange={({ target }) => setPreco(target.value)} />
-                        <input type="text" placeholder='Category' value={categoria} onChange={({ target }) => setCategoria(target.value)} />
-
-                        <input type="file" onChange={({ target }) => setImagem(target.files[0])} />
+                        <MyInput inputClass="input-medium" inputHandle={({ target }) => setNome(target.value)} inputPlaceholder="Name" inputType="text" inputValue={nome} />
+                        <MyInput inputClass="input-medium" inputHandle={({ target }) => setPreco(target.value)} inputPlaceholder="Price" inputType="number" inputValue={preco} />
+                        <MyInput inputClass="input-medium" inputHandle={({ target }) => setCategoria(target.value)} inputPlaceholder="Category" inputType="text" inputValue={categoria} />
+                        <MyInput inputClass="input-medium" inputHandle={({ target }) => setImagem(target.files[0])} inputPlaceholder="Image" inputType="file" />
 
                         <select className="select-sale" value={genero} onChange={({ target }) => { setGenero(target.value) }}>
                             <option>Select Gender</option>
@@ -115,8 +115,9 @@ export default function Products() {
                     </div>
                     {products.map(product => (
                         <div key={product.id} className='container'>
-                                <div className='card'>
-                                    <div className='card-info'>
+                            <MyCard cardClass="card-medium" cardElements={
+                                <>
+                                <div className='card-info'>
                                     <div className='info'><h3>Name:</h3><p>{product.nome}</p></div>
                                     <div className='info'><h3>Categoria:</h3><p>{product.categoria}</p></div>
                                     <div className='info'><h3>Gênero:</h3><p>{product.genero}</p></div>
@@ -125,11 +126,12 @@ export default function Products() {
                                     <div className='info'><h3>Id:</h3><p>{product._id}</p></div>
                                 </div>
                                 <img src={product.imagem} alt="Product Image" className='img-product' />
-                                 <div className='buttons'>
-                                        <button className='button-delete' onClick={() => deleteUser(user._id)}>Delete</button>
-                                        <button className='button-edit' onClick={() => navigate(`/seller/${user._id}`)}>Edit</button>
+                                <div className='buttons'>
+                                    <MyButton buttonClass="button-red button-small" buttonTitle="Delete" buttonHandle={() => deleteProduct(product._id)} />
+                                    <MyButton buttonClass="button-blue button-small" buttonTitle="Edit" buttonHandle={() => navigate(``)} />
                                 </div>
-                            </div>
+                            </>
+                            }/>
                         </div>
                     ))}
                 </div>

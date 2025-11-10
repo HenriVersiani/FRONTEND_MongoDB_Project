@@ -5,6 +5,7 @@ import Header from '../../Components/Header'
 import { useNavigate, useParams } from 'react-router'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
+import MyButton from '../../Components/MyButton'
 
 export default function Sale() {
 
@@ -97,7 +98,7 @@ export default function Sale() {
                             <option key={user._id} value={user._id}>{user.nome}</option>
                         ))}
                     </select>
-                    <input type="number" placeholder='Selling Price' value={price} onChange={({ target }) => { setPrice(target.value) }} />
+                    <MyInput inputClass="input-medium" inputHandle={({ target }) => { setPrice(target.value) }} inputPlaceholder="Selling Price" inputType="number" inputValue={price} />
                     <select className="select-sale" value={method} onChange={({ target }) => { setMethod(target.value) }}>
                         <option>Select Payment Method</option>
                         <option value="Credit_Card">Credit Card</option>
@@ -105,7 +106,7 @@ export default function Sale() {
                         <option value="PayPal">PayPal</option>
                     </select>
 
-                    <button className='button-signup' type='submit'>Add</button>
+                    <MyButton buttonClass="button-green button-medium" buttonTitle="Add"/>
                 </form>
             </div>
         </>

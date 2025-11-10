@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 import './seller.css'
+import MyButton from "../../Components/MyButton"
+import MyInput from "../../Components/MyInput"
 
 export default function Seller() {
 
@@ -20,7 +22,6 @@ export default function Seller() {
             const req = await axios.get(`http://localhost:3000/users/${id}`)
 
             const res = req.data
-            console.log(res)
 
             setNome(res.nome)
             setEmail(res.email)
@@ -32,8 +33,6 @@ export default function Seller() {
     }, [])
 
     async function editUser(e) {
-
-        console.log("entrou")
 
         e.preventDefault()
 
@@ -60,12 +59,12 @@ export default function Seller() {
     return (
         <>
             <Header />
-            <ToastContainer/>
+            <ToastContainer />
             <div className='container'>
                 <form >
                     <h1>Edit Seller</h1>
-                    <input className='input-signup' type="text" placeholder='Name' value={nome} onChange={({ target }) => setNome(target.value)} />
-                    <input className='input-signup' type="tel" placeholder='Phone' value={telefone} onChange={({ target }) => setTelefone(target.value)} />
+                    <MyInput inputClass="input " inputHandle={({ target }) => setNome(target.value)} inputPlaceholder="Name" inputType="text" inputValue={nome} />
+                    <MyInput inputClass="input-medium" inputHandle={({ target }) => setTelefone(target.value)} inputPlaceholder="Phone" inputType="tel" inputValue={telefone} />
                     <select className="select-sale" value={area} onChange={({ target }) => { setArea(target.value) }}>
                         <option>Select Area</option>
                         <option value="Women">Women</option>
@@ -73,9 +72,9 @@ export default function Seller() {
                         <option value="Children">Children</option>
                         <option value="Any">Any</option>
                     </select>
-                    <input className='input-signup' type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
-                    <input className='input-signup' type="password" placeholder='Password' value={senha} onChange={({ target }) => setSenha(target.value)} />
-                    <button className='button-signup' onClick={(e) => editUser(e)}>Edit</button>
+                    <MyInput inputClass="input-medium" inputHandle={({ target }) => setEmail(target.value)} inputPlaceholder="Email" inputType="email" inputValue={email} />
+                    <MyInput inputClass="input-medium" inputHandle={({ target }) => setSenha(target.value)} inputPlaceholder="Password" inputType="password" inputValue={senha} />
+                    <MyButton buttonClass="button-green button-small" buttonHandle={(e) => editUser(e)} buttonTitle="Edit" />
                 </form>
             </div>
 

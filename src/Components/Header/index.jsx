@@ -14,7 +14,6 @@ export default function Header() {
                 <Link className="link" to="/deposit">Deposit</Link>
                 <Link className="link" to="/sales">Sales</Link>
                 <Link className="link" to="/sellers">Sellers</Link>
-                <MyButton buttonClass="button-green button-medium" buttonTitle="Teste"/>
                 <FiAlignCenter />
             </nav>
         </header>

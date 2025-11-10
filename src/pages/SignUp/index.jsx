@@ -4,6 +4,8 @@ import './signup.css'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router';
+import MyButton from '../../Components/MyButton';
+import MyInput from '../../Components/MyInput';
 
 export default function SignUp() {
 
@@ -14,7 +16,9 @@ export default function SignUp() {
     const [senha, setSenha] = useState()
     const navigate = useNavigate();
 
-    async function cadastrarUsuario() {
+    async function cadastrarUsuario(e) {
+
+        e.preventDefault()
 
         const req = await axios.post('http://localhost:3000/users', {
             "nome": nome,
@@ -48,8 +52,8 @@ export default function SignUp() {
                 <ToastContainer />
                 <form >
                     <h1>Sign Up</h1>
-                    <input className='input-signup' type="text" placeholder='Name' value={nome} onChange={({ target }) => setNome(target.value)} />
-                    <input className='input-signup' type="tel" placeholder='Phone' value={telefone} onChange={({ target }) => setTelefone(target.value)} />
+                    <MyInput inputClass="input-medium" inputHandle={({ target }) => setNome(target.value)} inputPlaceholder="Name" inputType="text" inputValue={nome} />
+                    <MyInput inputClass="input-medium" inputHandle={({ target }) => setTelefone(target.value)} inputPlaceholder="Phone" inputType="tel" inputValue={telefone} />
                     <select className="select-sale" value={area} onChange={({ target }) => { setArea(target.value) }}>
                                 <option>Select Area</option>
                                 <option value="Women">Women</option>
@@ -57,10 +61,10 @@ export default function SignUp() {
                                 <option value="Children">Children</option>
                                 <option value="Any">Any</option>
                     </select>
-                    <input className='input-signup' type="email" placeholder='Email' value={email} onChange={({ target }) => setEmail(target.value)} />
-                    <input className='input-signup' type="password" placeholder='Password' value={senha} onChange={({ target }) => setSenha(target.value)} />                    
-                    <button className="button-signup" type='button' onClick={cadastrarUsuario}>Sign Up</button>
-                    <button type='button' className='button-login-red' onClick={redirect}>LogIn</button>
+                    <MyInput inputClass="input-medium" inputHandle={({ target }) => setEmail(target.value)} inputPlaceholder="Email" inputType="email" inputValue={email} />
+                    <MyInput inputClass="input-medium" inputHandle={({ target }) => setSenha(target.value)} inputPlaceholder="Password" inputType="password" inputValue={senha} />   
+                    <MyButton buttonClass="button-lightblue button-medium" buttonHandle={(e)=> cadastrarUsuario(e)} buttonTitle="SignUp"/>
+                    <MyButton buttonClass="button-lightblue button-small" buttonHandle={redirect} buttonTitle="Login"/>
                 </form>
             </main>
         </>

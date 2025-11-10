@@ -1,0 +1,23 @@
+.input-small, .input-medium, .input-large {
+    height: 32px;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: oklch(39.1% 0.09 240.876);
+    color: white;
+    box-sizing: border-box;
+}
+
+ .input-large{
+    width: 400px;
+    height: 35px;
+ }
+
+.input-medium{
+    width: 200px;
+}
+
+.input-small{
+    width: 120px;
+}

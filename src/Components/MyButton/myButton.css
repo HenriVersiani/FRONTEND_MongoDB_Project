@@ -1,4 +1,4 @@
-.button-red, .button-blue, .button-green{
+.button-red, .button-blue, .button-green, .button-lightblue{
     border-radius: 10px;
     color: white;
     height: 40px;
@@ -7,6 +7,12 @@
     cursor: pointer;
     padding: 10px;
     font-size: 16px;
+    
+}
+
+.button-blue:hover, .button-red:hover, .button-green:hover, .button-lightblue:hover{
+    opacity: 50%;
+    cursor: pointer;
 }
 
 .button-red{
@@ -31,4 +37,8 @@
 
 .button-small{
     width: 100px;
+}
+
+.button-lightblue{
+    background-color:  oklch(50% 0.134 242.749);
 }

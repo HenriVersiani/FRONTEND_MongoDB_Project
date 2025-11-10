@@ -39,16 +39,6 @@ button:hover{
   opacity: 0.8;
 }
 
-input{
-  height: 32px;
-  font-size: 15px;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: oklch(39.1% 0.09 240.876);
-  color: white;
-}
-
 input::placeholder{
   color: white;
 }

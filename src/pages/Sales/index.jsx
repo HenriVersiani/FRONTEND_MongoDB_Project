@@ -5,6 +5,9 @@ import Header from '../../Components/Header'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
+import MyButton from '../../Components/MyButton'
+import MyInput from '../../Components/MyInput'
+import MyCard from '../../Components/MyCard'
 
 export default function Sales() {
 
@@ -59,7 +62,6 @@ export default function Sales() {
 
     async function deleteSale(id) {
         const response = await api.delete(`/vendas/${id}`)
-        console.log(response)
 
         if (response.data.error) {
             toast.warning(response.data.error);
@@ -108,7 +110,7 @@ export default function Sales() {
                                     <option key={user._id} value={user._id}>{user.nome}</option>
                                 ))}
                             </select>
-                            <input type="number" placeholder='Selling Price' value={price} onChange={({ target }) => { setPrice(target.value) }} />
+                            <MyInput inputClass="input-medium" inputHandle={({ target }) => { setPrice(target.value) }} inputPlaceholder="Selling Price" inputType="number" inputValue={price} />
                             <select className="select-sale" value={method} onChange={({ target }) => { setMethod(target.value) }}>
                                 <option>Select Payment Method</option>
                                 <option value="Credit_Card">Credit Card</option>
@@ -127,7 +129,8 @@ export default function Sales() {
                         </div>
                         {sales.map(sale => (
                             <div key={sale.id} className='container'>
-                                <div className='card'>
+                                <MyCard cardClass="card-medium"  cardElements={
+                                    <>
                                     <div className='card-info'>
                                         <div className='info'>
                                             <h3>Id:</h3>
@@ -155,10 +158,12 @@ export default function Sales() {
                                         </div>
                                     </div>
                                     <div className='buttons'>
-                                        <button className='button-delete' onClick={() => deleteSale(sale._id)}>Delete</button>
-                                        <button className='button-edit' onClick={() => navigate(`/sale/${sale._id}`)}>Edit</button>
+                                        <MyButton buttonClass="button-red button-small" buttonHandle={() => deleteSale(sale._id)} buttonTitle="Delete"/>
+                                        <MyButton buttonClass="button-blue button-small" buttonHandle={() => navigate(`/sale/${sale._id}`)} buttonTitle="Edit"/>
                                     </div>
-                                </div>
+                                </>
+                                }/>
+                                
                             </div>
                         ))}
                     </div>
