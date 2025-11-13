@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import MyButton from '../../Components/MyButton'
+import MyInput from '../../Components/MyInput'
 
 export default function Sale() {
 

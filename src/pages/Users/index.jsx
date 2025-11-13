@@ -10,6 +10,7 @@ import { CiDesktopMouse1 } from 'react-icons/ci'
 import MyButton from '../../Components/MyButton'
 import MyCard from '../../Components/MyCard'
 import MyInput from '../../Components/MyInput'
+import Title from '../../Components/Title'
 
 
 export default function Users() {
@@ -29,21 +30,10 @@ export default function Users() {
         setUsers(userByName.data)
     }
 
-    async function deleteUser(id) {
-        const response = await api.delete(`/users/${id}`)
-
-        if (response.data.error) {
-            toast.warning(response.data.error);
-        } else {
-            toast.success("User Deleted!");
-        }
-        setTimeout(() => {
-            navigate(0);
-        }, 2000)
-    }
-
     useEffect(() => {
         getUsers()
+
+        console.log(users)
 
         const tokenLocal = localStorage.getItem('token');
         const emailLocal = localStorage.getItem('email');
@@ -58,6 +48,7 @@ export default function Users() {
         <>
             <ToastContainer />
             <Header />
+            <Title>Teste</Title>
             <div className='title-search'>
                 <h1> Sellers </h1>
                 <div className='search'>
@@ -69,29 +60,7 @@ export default function Users() {
                 <div>
                     {users.map(user => (
                         <div key={user.id} className='container'>
-                            <MyCard cardClass="card-medium" cardElements={
-                                <>
-                                <div className='card-info'>
-                                    <div className='info'>
-                                        <h3>Name</h3>
-                                        <p className='nome'>{user.nome}</p>
-                                    </div>
-                                    <div className='info'>
-                                        <h3>Email:</h3>
-                                        <p className='email'>{user.email}</p>
-                                    </div>
-                                    <div className='info'>
-                                        <h3>Ocupation Area:</h3>
-                                        <p className='area-ocupacao'>{user.areaOcupacao}</p>
-                                    </div>
-                                </div>
-                                <div className='buttons'>
-                                    <MyButton buttonClass="button-red button-small" buttonTitle="Delete" buttonHandle={() => deleteUser(user._id)}/>
-                                    <MyButton buttonClass="button-blue button-small" buttonTitle="Edit" buttonHandle={() => navigate(`/seller/${user._id}`)}/>
-                                </div>
-                            </>
-                            }/>
-                            
+                            <MyCard cardClass="card-medium" cardType="users" cardParams={user}/>
                         </div>
 
                     ))}

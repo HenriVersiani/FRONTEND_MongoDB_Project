@@ -115,23 +115,8 @@ export default function Products() {
                     </div>
                     {products.map(product => (
                         <div key={product.id} className='container'>
-                            <MyCard cardClass="card-medium" cardElements={
-                                <>
-                                <div className='card-info'>
-                                    <div className='info'><h3>Name:</h3><p>{product.nome}</p></div>
-                                    <div className='info'><h3>Categoria:</h3><p>{product.categoria}</p></div>
-                                    <div className='info'><h3>Gênero:</h3><p>{product.genero}</p></div>
-                                    <div className='info'><h3>Preço:</h3><p>{product.preco}</p></div>
-                                    <div className='info'><h3>Status:</h3><p>{product.status}</p></div>
-                                    <div className='info'><h3>Id:</h3><p>{product._id}</p></div>
-                                </div>
-                                <img src={product.imagem} alt="Product Image" className='img-product' />
-                                <div className='buttons'>
-                                    <MyButton buttonClass="button-red button-small" buttonTitle="Delete" buttonHandle={() => deleteProduct(product._id)} />
-                                    <MyButton buttonClass="button-blue button-small" buttonTitle="Edit" buttonHandle={() => navigate(``)} />
-                                </div>
-                            </>
-                            }/>
+
+                        <MyCard cardClass="card-medium" cardParams={product} cardType="products"/>
                         </div>
                     ))}
                 </div>

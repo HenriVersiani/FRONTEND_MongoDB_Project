@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import './home.css'
 import MyButton from '../../Components/MyButton'
 import MyInput from '../../Components/MyInput'
+import Container from '../../Components/Container'
 
 export default function Home() {
 
@@ -15,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     const tokenLocal = localStorage.getItem('token');
 
-    if(tokenLocal){
+    if (tokenLocal) {
       navigate("sellers")
     }
   }, [])
@@ -46,15 +47,15 @@ export default function Home() {
     <>
       <header><Link className="web-name" to="/">Perfume Store Management</Link></header>
       <ToastContainer />
-      <div className='container'>
+      <Container>
         <form className='form-login'>
           <h1>User Login</h1>
-          <MyInput inputClass="input-medium" inputHandle={({ target }) => setEmail(target.value)} inputPlaceholder="Email" inputType="email" inputValue={email}/>
-          <MyInput inputClass="input-medium" inputHandle={({ target }) => setPassword(target.value)} inputPlaceholder="Password" inputType="password" inputValue={password}/>
-          <MyButton buttonClass="button-lightblue button-medium" buttonTitle="Login" buttonHandle={(e) => loginUser(e)}/>
-          <MyButton buttonClass="button-lightblue button-small" buttonTitle="Sign-up" buttonHandle={() => navigate("/signup")}/>
+          <MyInput inputClass="input-medium" inputHandle={({ target }) => setEmail(target.value)} inputPlaceholder="Email" inputType="email" inputValue={email} />
+          <MyInput inputClass="input-medium" inputHandle={({ target }) => setPassword(target.value)} inputPlaceholder="Password" inputType="password" inputValue={password} />
+          <MyButton buttonClass="button-lightblue button-medium" buttonTitle="Login" buttonHandle={(e) => loginUser(e)} />
+          <MyButton buttonClass="button-lightblue button-small" buttonTitle="Sign-up" buttonHandle={() => navigate("/signup")} />
         </form>
-      </div>
+      </Container>
     </>
   )
 }
