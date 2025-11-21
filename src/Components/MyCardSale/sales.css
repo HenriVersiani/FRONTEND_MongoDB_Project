@@ -1,4 +1,4 @@
-.card-large, .card-medium, .card-small {
+.sales{
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -7,19 +7,7 @@
     border-radius: 10px;
     max-width: 50%;
     color: white;
-    width: 900px;
+    width: 700px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(1, 1, 1, 0.3);
-}
-
-.card-large{
-    width: 900px;
-}
-
-.card-medium{
-     width: 600px;
-}
-
-.card-small{
-    width: 400px;
 }

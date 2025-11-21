@@ -11,7 +11,7 @@ export default function Header() {
             <Link className="web-name" to="/">Perfume Store Management</Link>
             <nav>
                 <Link className="link" to="/signup">Register</Link>
-                <Link className="link" to="/deposit">Deposit</Link>
+                <Link className="link" to="/products">Products</Link>
                 <Link className="link" to="/sales">Sales</Link>
                 <Link className="link" to="/sellers">Sellers</Link>
                 <FiAlignCenter />

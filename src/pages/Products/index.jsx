@@ -2,12 +2,13 @@ import './product.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
-import { Link, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import MyButton from '../../Components/MyButton'
 import MyInput from '../../Components/MyInput'
-import MyCard from '../../Components/MyCard'
+import Container from '../../Components/Container'
+import MyCardProduct from '../../Components/MyCardProduct'
 
 export default function Products() {
 
@@ -83,8 +84,8 @@ export default function Products() {
             <h1> Products </h1>
             <ToastContainer />
             {showForm ? (
-                <div className='container'>
-                    <button className='link-form-back' onClick={() => setShowForm(false)}> ← Back</button>
+                <Container>
+                    <MyButton buttonClass="button-medium button-blue" buttonHandle={() => setShowForm(false)} buttonTitle=" ← Back"/>
                     <form className='form-product' onSubmit={createProduct}>
                         <h1>Add Product</h1>
                         <MyInput inputClass="input-medium" inputHandle={({ target }) => setNome(target.value)} inputPlaceholder="Name" inputType="text" inputValue={nome} />
@@ -105,19 +106,19 @@ export default function Products() {
                             <option value="Any">Any</option>
                         </select>
 
-                        <button className='button-signup' type='submit'>Add</button>
+                        <MyButton buttonClass="button-medium button-green" buttonTitle="Add"/>
                     </form>
-                </div>
+                </Container>
             ) : (
                 <div>
-                    <div className='main'>
-                        <button className='link-form' onClick={() => setShowForm(true)}>Add Product</button>
-                    </div>
-                    {products.map(product => (
-                        <div key={product.id} className='container'>
+                    <Container>
+                        <MyButton buttonClass="button-green button-medium" buttonHandle={() => setShowForm(true)} buttonTitle="Add Product"/>
+                    </Container>
 
-                        <MyCard cardClass="card-medium" cardParams={product} cardType="products"/>
-                        </div>
+                    {products.map(product => (
+                    <Container>
+                        <MyCardProduct cardParams={product}/>
+                    </Container>
                     ))}
                 </div>
             )}

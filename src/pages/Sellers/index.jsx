@@ -3,17 +3,15 @@ import api from '../../services/api'
 import { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
 import { useNavigate } from 'react-router'
-import { toast, ToastContainer } from 'react-toastify'
-import axios from 'axios'
+import { ToastContainer } from 'react-toastify'
 import { FiSearch } from "react-icons/fi";
-import { CiDesktopMouse1 } from 'react-icons/ci'
 import MyButton from '../../Components/MyButton'
-import MyCard from '../../Components/MyCard'
 import MyInput from '../../Components/MyInput'
-import Title from '../../Components/Title'
+import Container from '../../Components/Container'
+import MyCardUsers from '../../Components/MyCardUser'
 
 
-export default function Users() {
+export default function Sellers() {
 
     const [users, setUsers] = useState([])
     const [userName, setUserName] = useState([])
@@ -48,7 +46,6 @@ export default function Users() {
         <>
             <ToastContainer />
             <Header />
-            <Title>Teste</Title>
             <div className='title-search'>
                 <h1> Sellers </h1>
                 <div className='search'>
@@ -59,10 +56,9 @@ export default function Users() {
 
                 <div>
                     {users.map(user => (
-                        <div key={user.id} className='container'>
-                            <MyCard cardClass="card-medium" cardType="users" cardParams={user}/>
-                        </div>
-
+                        <Container>
+                            <MyCardUsers cardParams={user}/>
+                        </Container>
                     ))}
                 </div>
         </>

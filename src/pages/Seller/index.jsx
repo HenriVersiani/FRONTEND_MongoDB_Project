@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify"
 import './seller.css'
 import MyButton from "../../Components/MyButton"
 import MyInput from "../../Components/MyInput"
+import Container from "../../Components/Container"
 
 export default function Seller() {
 
@@ -60,10 +61,11 @@ export default function Seller() {
         <>
             <Header />
             <ToastContainer />
-            <div className='container'>
+            <Container>
+                <MyButton buttonClass="button-medium button-blue" buttonHandle={() => navigate("/sellers")} buttonTitle=" ← Back"/>
                 <form >
                     <h1>Edit Seller</h1>
-                    <MyInput inputClass="input " inputHandle={({ target }) => setNome(target.value)} inputPlaceholder="Name" inputType="text" inputValue={nome} />
+                    <MyInput inputClass="input-medium" inputHandle={({ target }) => setNome(target.value)} inputPlaceholder="Name" inputType="text" inputValue={nome} />
                     <MyInput inputClass="input-medium" inputHandle={({ target }) => setTelefone(target.value)} inputPlaceholder="Phone" inputType="tel" inputValue={telefone} />
                     <select className="select-sale" value={area} onChange={({ target }) => { setArea(target.value) }}>
                         <option>Select Area</option>
@@ -76,7 +78,7 @@ export default function Seller() {
                     <MyInput inputClass="input-medium" inputHandle={({ target }) => setSenha(target.value)} inputPlaceholder="Password" inputType="password" inputValue={senha} />
                     <MyButton buttonClass="button-green button-small" buttonHandle={(e) => editUser(e)} buttonTitle="Edit" />
                 </form>
-            </div>
+            </Container>
 
         </>
     )

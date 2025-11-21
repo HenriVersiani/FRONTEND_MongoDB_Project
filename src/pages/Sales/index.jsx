@@ -7,7 +7,9 @@ import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import MyButton from '../../Components/MyButton'
 import MyInput from '../../Components/MyInput'
-import MyCard from '../../Components/MyCard'
+import MyCard from '../../Components/MyCardUser'
+import MyCardSales from '../../Components/MyCardSale'
+import Container from '../../Components/Container'
 
 export default function Sales() {
 
@@ -80,8 +82,8 @@ export default function Sales() {
             <ToastContainer />
             {showForm ?
                 (
-                    <div className='container'>
-                        <button className='link-form-back' onClick={() => setShowForm(false)}> ← Back</button>
+                    <Container>
+                        <MyButton buttonClass="button-medium button-blue" buttonHandle={() => setShowForm(false)} buttonTitle=" ← Back"/>
                         <form className='form-sale' onSubmit={createSale}>
 
                             <h1>Add Sale</h1>
@@ -105,21 +107,20 @@ export default function Sales() {
                                 <option value="PayPal">PayPal</option>
                             </select>
 
-                            <button className='button-signup' type='submit'>Add</button>
+                            <MyButton buttonClass="button-medium button-green" buttonTitle="Add"/>
                         </form>
-                    </div>
+                    </Container>
                 ) :
                 (
                     <div>
-                        <div className='main'>
-                            <button className='link-form' onClick={() => setShowForm(true)}>Add Sale</button>
-                        </div>
+                        <Container>
+                            <MyButton buttonClass="button-green button-medium" buttonHandle={() => setShowForm(true)} buttonTitle="Add Sale"/>
+                        </Container>
+                        
                         {sales.map(sale => (
-                            <div key={sale.id} className='container'>
-
-                                <MyCard cardClass="card-medium" cardParams={sale} cardType="sales" />
-
-                            </div>
+                            <Container>
+                                <MyCardSales cardParams={sale} />
+                            </Container>
                         ))}
                     </div>
                 )}

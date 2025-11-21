@@ -7,6 +7,7 @@ import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import MyButton from '../../Components/MyButton'
 import MyInput from '../../Components/MyInput'
+import Container from '../../Components/Container'
 
 export default function Sale() {
 
@@ -83,10 +84,11 @@ export default function Sale() {
             <Header />
             <h1> Sales </h1>
             <ToastContainer />
-            <div className='container'>
+            <Container>
+                <MyButton buttonClass="button-medium button-blue" buttonHandle={() => navigate("/sales")} buttonTitle=" ← Back"/>
                 <form className='form-sale' onSubmit={(e) => editSale(e)}>
 
-                    <h1>Add Sale</h1>
+                    <h1>Edit Sale</h1>
                     <select className="select-sale" value={product} onChange={({ target }) => { setProduct(target.value) }}>
                         <option>Select Product</option>
                         {products.map(product => (
@@ -107,9 +109,9 @@ export default function Sale() {
                         <option value="PayPal">PayPal</option>
                     </select>
 
-                    <MyButton buttonClass="button-green button-medium" buttonTitle="Add"/>
+                    <MyButton buttonClass="button-green button-medium" buttonTitle="Edit"/>
                 </form>
-            </div>
+            </Container>
         </>
     )
 }

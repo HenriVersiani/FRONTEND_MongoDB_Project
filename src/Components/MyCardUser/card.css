@@ -1,0 +1,13 @@
+.users {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+    background-color: oklch(30.2% 0.056 229.695);
+    border-radius: 10px;
+    max-width: 50%;
+    color: white;
+    width: 700px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(1, 1, 1, 0.3);
+}
